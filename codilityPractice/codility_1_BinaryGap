@@ -1,0 +1,24 @@
+def findOne(B,Index,dis):
+    try:
+        nextOneIndex = a.index('1',Index+1)
+        diff = nextOneIndex - (Index+1)
+        dis.append(diff)
+    except ValueError:
+        return dis
+    else:
+        print('no exception')
+        
+def binGap(T):
+    if isinstance(T,int) and 1 <= T <= 2147483647:
+        print('all good')
+        binT = bin(T).replace('0b','')
+        print(binT)
+        firstOneIndex = 0
+        distance = []
+        
+        
+    else:
+        exit()
+        
+binGap(10)        
+        
