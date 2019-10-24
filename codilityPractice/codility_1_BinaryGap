@@ -1,24 +1,23 @@
-def findOne(B,Index,dis):
-    try:
-        nextOneIndex = a.index('1',Index+1)
-        diff = nextOneIndex - (Index+1)
-        dis.append(diff)
-    except ValueError:
-        return dis
-    else:
-        print('no exception')
-        
+def genOne(binval):
+    distance = []
+    firstOneIndex = 0
+    noIfOne = str(binval).count('1')
+    for i in range(noIfOne-1):
+        nextOneIndex = str(binval).index("1",firstOneIndex+1)
+        dis = nextOneIndex - firstOneIndex -1
+        distance.append(dis)
+        firstOneIndex = nextOneIndex
+    return distance  
+
 def binGap(T):
     if isinstance(T,int) and 1 <= T <= 2147483647:
         print('all good')
         binT = bin(T).replace('0b','')
         print(binT)
-        firstOneIndex = 0
-        distance = []
-        
-        
+        allDistance = genOne(binT)
+        maxAllDistance = max(allDistance)
     else:
         exit()
-        
-binGap(10)        
-        
+    print('Max binary Gap :: {}'.format(maxAllDistance))
+    
+binGap(158)    
