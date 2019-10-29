@@ -27,3 +27,14 @@ def solution(N):
         exit()
     #print('Max binary Gap :: {}'.format(maxAllDistance))
     return(maxAllDistance)
+
+
+#-------------------------------
+Example test:    1041 
+OK 
+
+Example test:    15 
+OK 
+
+Example test:    32 
+OK 
