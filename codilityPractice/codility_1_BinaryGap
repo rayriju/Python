@@ -1,23 +1,29 @@
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
 def genOne(binval):
     distance = []
     firstOneIndex = 0
     noIfOne = str(binval).count('1')
-    for i in range(noIfOne-1):
-        nextOneIndex = str(binval).index("1",firstOneIndex+1)
-        dis = nextOneIndex - firstOneIndex -1
-        distance.append(dis)
-        firstOneIndex = nextOneIndex
-    return distance  
-
-def binGap(T):
-    if isinstance(T,int) and 1 <= T <= 2147483647:
-        print('all good')
-        binT = bin(T).replace('0b','')
-        print(binT)
+    if noIfOne > 1:
+        for i in range(noIfOne-1):
+            nextOneIndex = str(binval).index("1",firstOneIndex+1)
+            dis = nextOneIndex - firstOneIndex -1
+            distance.append(dis)
+            firstOneIndex = nextOneIndex
+        return distance 
+    else:
+        distance.append(0)
+        return distance
+    
+def solution(N):
+    if isinstance(N,int) and 1 <= N <= 2147483647:
+        #print('all good')
+        binT = bin(N).replace('0b','')
+        #print(binT)
         allDistance = genOne(binT)
+        #print("allDistance = {}".format(allDistance))
         maxAllDistance = max(allDistance)
     else:
         exit()
-    print('Max binary Gap :: {}'.format(maxAllDistance))
-    
-binGap(158)    
+    #print('Max binary Gap :: {}'.format(maxAllDistance))
+    return(maxAllDistance)
